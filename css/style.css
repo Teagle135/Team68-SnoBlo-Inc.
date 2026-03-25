@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#nav-bar {
+    width: 100%;
+    background-color: rgb(3, 8, 55);
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+#nav-bar nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+}
+
+#nav-bar .brand {
+    justify-self: start;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+#nav-bar .nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 14px;
+    justify-self: center;
+}
+
+#nav-bar .nav-links a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+#nav-bar .nav-links a:hover,
+#nav-bar .nav-links a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.18);
+    outline: none;
+}
+
+#nav-bar .auth-actions {
+    justify-self: end;
+    display: flex;
+    gap: 10px;
+}
+
+#nav-bar .btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    min-width: 92px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#nav-bar .btn-signup {
+    background-color: #ffffff;
+    color: rgb(3, 8, 55);
+}
+
+#nav-bar .btn-signup:hover,
+#nav-bar .btn-signup:focus-visible {
+    background-color: #e6ebff;
+    outline: none;
+}
+
+#nav-bar .btn-signin {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+#nav-bar .btn-signin:hover,
+#nav-bar .btn-signin:focus-visible {
+    background-color: rgba(255, 255, 255, 0.12);
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    #nav-bar nav {
+        min-height: auto;
+        padding: 12px 0;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 12px;
+    }
+
+    #nav-bar .brand {
+        justify-self: center;
+    }
+
+    #nav-bar .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #nav-bar .auth-actions {
+        justify-self: center;
+    }
+}
