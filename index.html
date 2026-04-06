@@ -25,5 +25,67 @@
         </nav>
     </header>
 
+    <section id="calculator">
+        <div class="container">
+            <h2>Quick Estimate Calculator</h2>
+            <p class="sub">Enter your surface dimensions to get an instant price estimate.</p>
+
+            <div class="calculator-card">
+
+                <div class="calc-form">
+
+                    <div class="form-group">
+                        <label for="calc-env">Surface Type</label>
+                        <select id="calc-env">
+                            <option value="driveway">Driveway — $0.18 / sq ft</option>
+                            <option value="walkway">Walkway — $0.22 / sq ft</option>
+                            <option value="parking">Parking Lot — $0.14 / sq ft</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calc-width">Width (ft)</label>
+                            <input type="number" id="calc-width" min="1" max="9999" placeholder="e.g. 12" />
+                        </div>
+                        <div class="form-group">
+                            <label for="calc-length">Length (ft)</label>
+                            <input type="number" id="calc-length" min="1" max="9999" placeholder="e.g. 30" />
+                        </div>
+                    </div>
+
+                    <button id="calc-btn" onclick="calculateEstimate()">Calculate Estimate</button>
+                    <p class="calc-error" id="calc-error" aria-live="polite"></p>
+
+                </div>
+
+                <div class="calc-result" id="calc-result" aria-live="polite">
+                    <div class="result-row">
+                        <span class="result-label">Surface area</span>
+                        <span class="result-value" id="res-area">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Rate</span>
+                        <span class="result-value" id="res-rate">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Subtotal</span>
+                        <span class="result-value" id="res-subtotal">—</span>
+                    </div>
+                    <div class="result-row result-total">
+                        <span class="result-label">Estimated Total</span>
+                        <span class="result-value" id="res-total">—</span>
+                    </div>
+                    <p class="result-note" id="res-note">&#9432; This is an estimate only. Final price confirmed at
+                        booking. Minimum charge: $35.00 CAD.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="js/calculator.js"></script>
 
 </body>
+
+</html>
