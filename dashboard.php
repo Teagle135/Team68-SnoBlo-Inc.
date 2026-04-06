@@ -18,7 +18,7 @@ $userEmail = htmlspecialchars($_SESSION['user_email']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile — SnoBlo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .profile-container {
             min-height: calc(100vh - 70px);
@@ -105,11 +105,11 @@ $userEmail = htmlspecialchars($_SESSION['user_email']);
 <!-- ── Shared Nav Bar ── -->
 <div id="nav-bar">
     <nav>
-        <a class="brand" href="index.php">Snoblo Inc.</a>
+        <a class="brand" href="index.html">SnoBlo Inc.</a>
         <ul class="nav-links">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php#services">Services</a></li>
-            <li><a href="index.php#contact">Contact</a></li>
+            <li><a href="index.html#calculator">Services</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Contact</a></li>
         </ul>
         <div class="auth-actions">
             <!-- Swap auth buttons for logged-in state -->
@@ -130,7 +130,7 @@ $userEmail = htmlspecialchars($_SESSION['user_email']);
         <p class="user-email"><?= $userEmail ?></p>
 
         <div class="profile-links">
-            <a class="link-home" href="index.php">← Back to Home</a>
+            <a class="link-home" href="index.html">← Back to Home</a>
             <!-- Placeholder for future booking page -->
             <a class="link-home" href="#" style="background:#3a4a8a;">Book a Service</a>
             <a class="link-logout" href="logout.php">Log Out</a>

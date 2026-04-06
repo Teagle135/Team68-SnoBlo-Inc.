@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up — SnoBlo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         /* ── Page-level layout ── */
         .auth-container {
@@ -190,11 +190,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- ── Shared Nav Bar ── -->
 <div id="nav-bar">
     <nav>
-        <a class="brand" href="index.php">Snoblo Inc.</a>
+        <a class="brand" href="index.html">SnoBlo Inc.</a>
         <ul class="nav-links">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php#services">Services</a></li>
-            <li><a href="index.php#contact">Contact</a></li>
+            <li><a href="index.html#calculator">Services</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Contact</a></li>
         </ul>
         <div class="auth-actions">
             <a class="btn btn-signup" href="signup.php">Sign Up</a>
