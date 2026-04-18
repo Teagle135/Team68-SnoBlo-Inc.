@@ -1,4 +1,5 @@
 <?php
+//SnoBlo Inc. Team 68 (Alvin Qin, Tony Ren, Eric Xu, Kuba Calik) - File authored by: Alvin Qin and Kuba Calik
 $servername = "localhost";
 $username = "qina12_local";
 $password = "a.v(aSG2";
@@ -11,9 +12,13 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
+//Send booked dates variable to JS to dim booked dates
+$booked_dates = $conn->prepare("SELECT `booking_date` FROM `bookings`");
+$booked_dates->execute();
+$used_dates = $booked_dates->fetchAll(PDO::FETCH_COLUMN);
+echo "<script> const used_dates = " . json_encode($used_dates) . "; </script>";
+
 $message = "";
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars(trim($_POST['name']));
@@ -25,27 +30,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "<p style='color: #d32f2f; font-weight: bold;'>Error: Invalid Canadian Postal Code format.</p>";
     } else {
         try {
-            $sql = "INSERT INTO bookings (customer_name, address, postal_code, booking_date, booking_time) 
-                    VALUES (:name, :address, :postal, :date, :time)";
+            if (!empty($date)) {
+                $date_check = $conn->prepare("SELECT COUNT(*) FROM `bookings` WHERE booking_date = :date");
+                $date_check->execute([':date' => $date]);
 
-            $stmt = $conn->prepare($sql);
-            $stmt->execute([
-                ':name' => $name,
-                ':address' => $address,
-                ':postal' => $postal,
-                ':date' => $date,
-                ':time' => $time
-            ]);
+                $date_count = $date_check->fetchColumn();
 
-            $message = "<p style='color: #2e7d32; font-weight: bold;'>Success! Booking confirmed for $name.</p>";
+                if ($date_count == 0) {
+                    $sql = "INSERT INTO bookings (customer_name, address, postal_code, booking_date, booking_time) 
+                            VALUES (:name, :address, :postal, :date, :time)";
+
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute([
+                        ':name' => $name,
+                        ':address' => $address,
+                        ':postal' => $postal,
+                        ':date' => $date,
+                        ':time' => $time
+                    ]);
+
+                    $message = "<p style='color: #2e7d32; font-weight: bold;'>Success! Booking confirmed for $name.</p>";
+                } else {
+                    $message = "<p style='color: #d32f2f; font-weight: bold;'>Error: There is a booking already made for this date. </p>";
+                }
+            } else {
+                $message = "<p style='color: #d32f2f; font-weight: bold;'>Error: No date booked.</p>";
+            }
+                
+
         } catch (PDOException $e) {
             $message = "<p style='color: #d32f2f;'>Database Error: " . $e->getMessage() . "</p>";
         }
     }
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="booking_style.css">
+    <link rel="stylesheet" href="css/booking_style.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="booking_script.js" defer> </script>
+    <script src="js/booking_script.js" defer> </script>
     <title>SnoBlo Inc. | Booking</title>
 </head>
 
@@ -101,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="booking.php" method="POST">
 
-                <input type="hidden" name="selectedDate" id="selectedDate" value="2026-04-11">
+                <input type="hidden" name="selectedDate" id="selectedDate">
                 
                 <?php echo $message ?>
 

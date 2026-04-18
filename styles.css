@@ -35,6 +35,15 @@ body {
     font-size: 18px;
 }
 
+.number.dimmed {
+    background-color: hsla(0, 0%, 0%, 0.344);
+    color: rgba(0, 0, 0, 0.426);
+    pointer-events: none;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    cursor: not-allowed;
+}
+
 .number.selected {
     background-color: #166AC9;
     color: white;
@@ -44,6 +53,8 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
 
 #month {
     display: flex;

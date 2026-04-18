@@ -1,4 +1,4 @@
-
+//SnoBlo Inc. Team 68 (Alvin Qin, Tony Ren, Eric Xu, Kuba Calik) - File authored by: Kuba Calik
 //Set intial information
 setYear = 2026;
 setMonth = 3;
@@ -27,9 +27,21 @@ function createCalendar(year, month) {
     for (let i = 0; i < startDate; i++) {
         table += `<td></td>`;
     }
+    
 
-    for (let i = 1; i < monthDays; i++) {
-        table += `<td class="number">${i}</td>`
+    for (let i = 1; i < monthDays+1; i++) {
+        
+        let currentMonth = (month + 1).toString().padStart(2, '0');
+        let currentDay = i.toString().padStart(2, '0');
+        let current_date = `${year}-${currentMonth}-${currentDay}`
+        console.log(current_date)
+
+        if (used_dates.includes(current_date)) {
+            table += `<td class="number dimmed">${i}</td>`
+            console.log("yall its booked!")
+        } else {
+            table += `<td class="number">${i}</td>`
+        }
 
         if ((i + startDate) % 7 === 0) {
             table += `</tr><tr>`
