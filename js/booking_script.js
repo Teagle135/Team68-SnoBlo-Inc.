@@ -1,4 +1,4 @@
-
+//SnoBlo Inc. Team 68 (Alvin Qin, Tony Ren, Eric Xu, Kuba Calik) - File authored by: Kuba Calik
 //Set intial information
 setYear = 2026;
 setMonth = 3;
