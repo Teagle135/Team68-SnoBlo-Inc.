@@ -25,15 +25,53 @@
         </nav>
     </header>
 
-    <section id="calculator">
+    <section id="hero" class="section hero-section">
+        <div class="container hero-inner">
+            <h1>Professional Snow Removal You Can Count On</h1>
+            <p>Serving the Greater Toronto Area with fast, reliable clearing for driveways, walkways, and parking lots.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="booking.php">Book a Service</a>
+                <a class="btn-outline" href="#calculator">Get an Estimate</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
         <div class="container">
-            <h2>Quick Estimate Calculator</h2>
-            <p class="sub">Enter your surface dimensions to get an instant price estimate.</p>
+            <h2 class="section-title">Our Services &amp; Rates</h2>
+            <p class="section-sub">All prices in CAD. Rates are per visit and based on surface area.</p>
+
+            <div class="cards-grid">
+                <div class="service-card">
+                    <h3>Driveway Clearing</h3>
+                    <p class="rate">$0.18 <span>/ sq ft</span></p>
+                    <p>Full snow removal and salting for residential and commercial driveways.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Walkway Clearing</h3>
+                    <p class="rate">$0.22 <span>/ sq ft</span></p>
+                    <p>Safe, slip-free pathway clearing for homes and businesses after every snowfall.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Parking Lot Clearing</h3>
+                    <p class="rate">$0.14 <span>/ sq ft</span></p>
+                    <p>Commercial-grade clearing for parking lots of all sizes with reliable scheduling.</p>
+                </div>
+            </div>
+
+            <p class="minimum-note">A minimum service charge of <strong>$35.00 CAD</strong> applies to all bookings.</p>
+        </div>
+    </section>
+
+    <section id="calculator" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Quick Estimate Calculator</h2>
+            <p class="section-sub">Enter your surface dimensions to get an instant price estimate. No account required.
+            </p>
 
             <div class="calculator-card">
-
                 <div class="calc-form">
-
                     <div class="form-group">
                         <label for="calc-env">Surface Type</label>
                         <select id="calc-env">
@@ -42,7 +80,6 @@
                             <option value="parking">Parking Lot — $0.14 / sq ft</option>
                         </select>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label for="calc-width">Width (ft)</label>
@@ -53,12 +90,9 @@
                             <input type="number" id="calc-length" min="1" max="9999" placeholder="e.g. 30" />
                         </div>
                     </div>
-
-                    <button id="calc-btn" onclick="calculateEstimate()">Calculate Estimate</button>
+                    <button id="calc-btn" class="btn-calc" onclick="calculateEstimate()">Calculate Estimate</button>
                     <p class="calc-error" id="calc-error" aria-live="polite"></p>
-
                 </div>
-
                 <div class="calc-result" id="calc-result" aria-live="polite">
                     <div class="result-row">
                         <span class="result-label">Surface area</span>
@@ -76,13 +110,106 @@
                         <span class="result-label">Estimated Total</span>
                         <span class="result-value" id="res-total">—</span>
                     </div>
-                    <p class="result-note" id="res-note">&#9432; This is an estimate only. Final price confirmed at
-                        booking. Minimum charge: $35.00 CAD.</p>
+                    <p class="result-note" id="res-note">This is an estimate only. Final price confirmed at booking.
+                        Minimum charge: $35.00 CAD.</p>
+                    <a class="btn-primary" href="signup.php">Book This Service</a>
                 </div>
-
             </div>
         </div>
     </section>
+
+    <section id="promotions" class="section">
+        <div class="container">
+            <h2 class="section-title">Promotions &amp; Discounts</h2>
+            <p class="section-sub">Take advantage of our seasonal offers and value packages.</p>
+            <div class="promo-grid">
+                <div class="promo-card promo-featured">
+                    <p>First-time customers receive 10% off their first visit.</p>
+                    <a class="btn-primary" href="signup.php">Claim Offer</a>
+                </div>
+                <div class="promo-card">
+                    <p>Book five or more visits upfront and save 15% on winter snow clearing.</p>
+                    <a class="btn-outline-dark" href="signup.php">Learn More</a>
+                </div>
+                <div class="promo-card">
+                    <p>Refer a friend and both receive $10 off your next service.</p>
+                    <a class="btn-outline-dark" href="signup.php">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-sub">Real feedback from customers across the GTA.</p>
+            <div class="testimonials-grid" id="testimonials-container"></div>
+            <div class="testimonial-submit">
+                <h3>Share Your Experience</h3>
+                <p>Had a great service? Leave us a review below. Your feedback helps us improve.</p>
+                <form id="testimonial-form">
+                    <div class="form-group">
+                        <label for="t-name">Name</label>
+                        <input type="text" id="t-name" name="name" maxlength="40" placeholder="Your name or initials"
+                            required />
+                    </div>
+                    <div class="form-group">
+                        <label for="t-rating">Rating</label>
+                        <select id="t-rating" name="rating" required>
+                            <option value="">Select a rating</option>
+                            <option value="5">5/5 — Excellent</option>
+                            <option value="4">4/5 — Good</option>
+                            <option value="3">3/5 — Average</option>
+                            <option value="2">2/5 — Poor</option>
+                            <option value="1">1/5 — Very Poor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="t-text">Your Review</label>
+                        <textarea id="t-text" name="text" rows="4" maxlength="500"
+                            placeholder="Tell us about your experience..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Review</button>
+                    <p class="form-note">* Reviews are visible to all site visitors once submitted.</p>
+                    <p class="testimonial-status" id="testimonial-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2 class="section-title">Contact Us</h2>
+                <p>Have a question or need a custom quote? Reach out and we’ll get back to you within a few hours.</p>
+                <ul class="contact-list">
+                    <li><strong>Phone:</strong> (416) 555-0198</li>
+                    <li><strong>Email:</strong> info@snoblo.ca</li>
+                    <li><strong>Service Area:</strong> Greater Toronto Area, Ontario</li>
+                    <li><strong>Hours:</strong> Mon – Sun: 6:00 AM – 9:00 PM</li>
+                </ul>
+            </div>
+            <div class="contact-map-placeholder">
+                <div class="map-box">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container footer-inner">
+            <p class="footer-brand">SnoBlo Inc.</p>
+            <ul class="footer-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#calculator">Estimate</a></li>
+                <li><a href="#promotions">Promotions</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="login.php">Sign In</a></li>
+                <li><a href="signup.php">Sign Up</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2025 SnoBlo Inc. All rights reserved. Serving the Greater Toronto Area.</p>
+        </div>
+    </footer>
 
     <script src="js/calculator.js"></script>
 
