@@ -107,7 +107,7 @@ $userEmail = htmlspecialchars($_SESSION['user_email']);
     <nav>
         <a class="brand" href="index.html">SnoBlo Inc.</a>
         <ul class="nav-links">
-            <li><a href="index.html#calculator">Services</a></li>
+            <li><a href="bookings.php">Services</a></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html">Contact</a></li>
         </ul>

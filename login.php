@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <nav>
         <a class="brand" href="index.html">SnoBlo Inc.</a>
         <ul class="nav-links">
-            <li><a href="index.html#calculator">Services</a></li>
+            <li><a href="booking.php">Services</a></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html">Contact</a></li>
         </ul>
@@ -232,7 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 <script>
     const msg = document.getElementById('client-msg');
     const obs = new MutationObserver(() => {
