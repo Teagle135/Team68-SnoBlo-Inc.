@@ -34,11 +34,9 @@ function createCalendar(year, month) {
         let currentMonth = (month + 1).toString().padStart(2, '0');
         let currentDay = i.toString().padStart(2, '0');
         let current_date = `${year}-${currentMonth}-${currentDay}`
-        console.log(current_date)
 
         if (used_dates.includes(current_date)) {
             table += `<td class="number dimmed">${i}</td>`
-            console.log("yall its booked!")
         } else {
             table += `<td class="number">${i}</td>`
         }
@@ -59,8 +57,7 @@ function updateCalendar() {
 }
 
 //Create button events
-leftButton.addEventListener("click", function () {
-    console.log(setMonth)
+leftButton.addEventListener("click", function () {    
     if (setMonth == 0) {
         setMonth = 11;
         setYear -= 1;
@@ -71,7 +68,6 @@ leftButton.addEventListener("click", function () {
 })
 
 rightButton.addEventListener("click", function () {
-    console.log(setMonth)
     if (setMonth == 11) {
         setMonth = 0;
         setYear += 1;
@@ -97,7 +93,6 @@ date.addEventListener("click", (event) => {
     const sqlDate = `${setYear}-${formattedMonth}-${formattedDay}`;
 
     document.getElementById("selectedDate").value = sqlDate;
-    console.log(selectedDate.value);
 })
 
 
